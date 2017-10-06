@@ -36,7 +36,7 @@ function initMenu(){
 		function(resolve){
 			inq.prompt([{name:"prod", message: "What do you want to buy?"}, {type: "input", name:"quant", message:"How many would you like to buy?", validate: validNum}]).then(
 				function (answers) {
-					console.log(answers);
+					// console.log(answers);
 					connection.query('select * from products where product_name = "' + answers.prod + '"', function (err, res, fields){
 						if (err) console.log("query err" + err);
 						if (parseInt(answers.quant) > res[0].stock_quantity){
